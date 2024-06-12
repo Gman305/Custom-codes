@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #div1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    #circle {
+        background-color: red;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+    }
+    .input {
+        width: 50px;
+        margin-bottom: 5px;
+    }
+</style>
+<head>
+    <title>Random number generator</title>
+    <script>
+        function generateNum(){
+            let from=document.getElementById("from");
+            let fromNum=parseInt(from.value);
+            let to=document.getElementById("to");
+            let toNum=parseInt(to.value);
+            let circle=document.getElementById("circle");
+            circle.textContent="";
+
+            let number=Math.floor(Math.random()*(toNum-fromNum+1)+fromNum);
+            let par=document.createElement("h2");
+            par.textContent=number.toString();
+
+            circle.appendChild(par);
+            from.value="";
+            to.value="";
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <h1>Welcome to the random number generator</h1>
+    <br>
+    <h2>Please select the range of numbers you want below</h2>
+    <br>
+    <div id="circle"></div>
+    <br>
+    <input type="text" id="from" class="input">
+    <input type="text" id="to" class="input">
+    <button onclick="generateNum()">Generate</button>
+</div>
+</body>
+</html>
