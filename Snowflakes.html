@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    body{
+        /*display: grid;*/
+    }
+    div{
+        width: 500px;
+        height: 100vh;
+        display: inline-block;
+        margin-right: 10px;
+        /*overflow: hidden;*/
+    }
+    img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+</style>
+<head>
+    <title>Snowflakes</title>
+</head>
+<body>
+<div id="snowflake1"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s1.png"></div>
+<div id="snowflake2"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s2.png"></div>
+<div id="snowflake3"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s3.png"></div>
+<div id="snowflake4"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s4.png"></div>
+<div id="snowflake5"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s5.png"></div>
+<div id="snowflake6"><img src="C:\Users\G MAN\Desktop\Zadacha 1\s6.png"></div>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+    function getRandomValue() {
+        return '-' + Math.floor(Math.random() * 100) + '%';
+    }
+    anime({
+        targets:'#snowflake1',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+    anime({
+        targets:'#snowflake2',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+    anime({
+        targets:'#snowflake3',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+    anime({
+        targets:'#snowflake4',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+    anime({
+        targets:'#snowflake5',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+    anime({
+        targets:'#snowflake6',
+        translateY: [getRandomValue(),'100%'],
+        easing:'linear',
+        duration:Math.floor(Math.random()*(10000-7000)+7000),
+        loop:true,
+    })
+</script>
+</body>
+</html>
