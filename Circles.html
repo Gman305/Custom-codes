@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Animation Bullshit</title>
+</head>
+<style>
+    .paren{
+        background-color: cyan;
+        width: 100px;
+        height: 100px;
+        /*border-radius: 50%;*/
+        margin-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-right: 20px;
+    }
+    .neparen{
+        background-color: cyan;
+        width: 100px;
+        height: 100px;
+        /*border-radius: 50%;*/
+        margin-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-right: 20px;
+    }
+    body{
+        display: inline;
+        justify-content: start;
+    }
+</style>
+<body>
+<div class="paren"><h1 class="score">0</h1></div>
+<div class="neparen"><h1 class="score">1</h1></div>
+<div class="paren"><h1 class="score">2</h1></div>
+<div class="neparen"><h1 class="score">3</h1></div>
+<div class="paren"><h1 class="score">4</h1></div>
+<div class="neparen"><h1 class="score">5</h1></div>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+    anime({
+        targets:'.paren',
+        translateX:{
+            value:400,
+            duration:2500,
+            easing:'linear',
+        },
+        scale:{
+            value: 1.5,
+            duration: 2500,
+            easing: 'linear',
+        },
+        borderRadius:{
+            value:['0%','50%'],
+            duration:2500,
+            easing:'linear'
+        },
+        backgroundColor:{
+            value:'#66ad88',
+            duration:2500,
+            easing:'linear'
+        },
+        direction:'alternate',
+        loop:true
+    })
+    setTimeout(function() {
+        anime({
+            targets: '.neparen',
+            translateX: {
+                value: 400,
+                duration: 2500,
+                easing: 'linear',
+            },
+            scale: {
+                value: 1.5,
+                duration: 2500,
+                easing: 'linear',
+            },
+            borderRadius: {
+                value: ['0%', '50%'],
+                duration: 2500,
+                easing: 'linear'
+            },
+            backgroundColor: {
+                value: '#121eef',
+                duration: 2500,
+                easing: 'linear'
+            },
+            direction: 'alternate',
+            loop: true
+        });
+    }, 2500);
+</script>
+</body>
+</html>
