@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #2c2a2a;
+    }
+    #calculator{
+        height: 500px;
+        width: 400px;
+        background-color: #3b3939;
+        border-radius: 10px;
+        border: none;
+    }
+    #display{
+        width: 393px;
+        height: 50px;
+        overflow: hidden;
+        font-size: 30px;
+        border-radius: 10px;
+        background-color: #5b5959;
+        color: #FFF;
+    }
+    .button{
+        height: 80px;
+        width: 80px;
+        overflow: hidden;
+        border-radius: 50px;
+        background-color: #ef7d05;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        border: none;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 40px;
+        padding: 20px;
+        border: none;
+    }
+    .button:hover{
+        background-color: #ef891d;
+    }
+    .button:active{
+        background-color: #f3942f;
+    }
+    #button-container{
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    #mult,#divide,#sum,#equal{
+        background-color: #0db4f1;
+    }
+</style>
+<head>
+    <title>Calculator</title>
+    <script>
+        function display(el){
+            let display_=document.getElementById("display");
+            display_.value+=el;
+        }
+        function cleardisplay(){
+            let display=document.getElementById("display").value="";
+        }
+        function calculate(){
+            let display=document.getElementById("display")
+            try{
+                display.value=eval(display.value);
+            }
+            catch{
+                display.value="ERROR";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="calculator">
+    <input type="text" id="display">
+    <div id="button-container">
+        <button class="button" onclick="display('7')">7</button>
+        <button class="button" onclick="display('8')">8</button>
+        <button class="button" onclick="display('9')">9</button>
+        <button class="button" id="mult" onclick="display('*')">*</button>
+        <button class="button" onclick="display('4')">4</button>
+        <button class="button" onclick="display('5')">5</button>
+        <button class="button" onclick="display('6')">6</button>
+        <button class="button" id="divide" onclick="display('/')">/</button>
+        <button class="button" onclick="display('1')">1</button>
+        <button class="button" onclick="display('2')">2</button>
+        <button class="button" onclick="display('3')">3</button>
+        <button class="button" id="sum" onclick="display('+')">+</button>
+        <button class="button" onclick="cleardisplay()">C</button>
+        <button class="button" onclick="display('0')">0</button>
+        <button class="button" onclick="display('.')">.</button>
+        <button class="button" id="equal" onclick="calculate()">=</button>
+    </div>
+</div>
+</body>
+</html>
