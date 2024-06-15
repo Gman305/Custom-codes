@@ -9,7 +9,7 @@
         width: 100px;
         height: 100px;
         /*border-radius: 50%;*/
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         justify-content: center;
         align-items: center;
         display: flex;
@@ -20,7 +20,7 @@
         width: 100px;
         height: 100px;
         /*border-radius: 50%;*/
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         justify-content: center;
         align-items: center;
         display: flex;
@@ -29,21 +29,22 @@
     body{
         display: inline;
         justify-content: start;
+        background-color: #bf37c9
     }
 </style>
 <body>
-<div class="paren"><h1 class="score">0</h1></div>
-<div class="neparen"><h1 class="score">1</h1></div>
-<div class="paren"><h1 class="score">2</h1></div>
-<div class="neparen"><h1 class="score">3</h1></div>
-<div class="paren"><h1 class="score">4</h1></div>
-<div class="neparen"><h1 class="score">5</h1></div>
+<div class="paren"><h1 class="score"></h1></div>
+<div class="neparen"><h1 class="score"></h1></div>
+<div class="paren"><h1 class="score"></h1></div>
+<div class="neparen"><h1 class="score"></h1></div>
+<div class="paren"><h1 class="score"></h1></div>
+<div class="neparen"><h1 class="score"></h1></div>
 <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 <script>
     anime({
         targets:'.paren',
         translateX:{
-            value:400,
+            value:1800,
             duration:2500,
             easing:'linear',
         },
@@ -69,7 +70,7 @@
         anime({
             targets: '.neparen',
             translateX: {
-                value: 400,
+                value: 1800,
                 duration: 2500,
                 easing: 'linear',
             },
