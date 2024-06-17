@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    label{
+        display: inline-block;
+        width: 100px;
+    }
+    #naslov{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    input,select{
+        margin-bottom: 20px;
+        width: 200px;
+    }
+    button{
+        width: 100px;
+    }
+    #container{
+        display: flex;
+    }
+    .card{
+        margin-right: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<head>
+    <title>Cards</title>
+    <script>
+        let total_sum=0;
+        function createCard(){
+            let height=document.getElementById("height");
+            let width=document.getElementById("width");
+            let color=document.getElementById("color");
+            let total=document.getElementById("total");
+
+
+            if(height.value==="" || width.value==="" || color.value===""){
+                alert("Please fill out the whole form");
+                return -1;
+            }
+            else{
+                let container=document.getElementById("container");
+
+                let card=document.createElement("div");
+                let button=document.createElement("button");
+                button.textContent="Sell";
+
+                let cardHeight=parseInt(height.value);
+                let cardWidth=parseInt(width.value);
+                let cardPrice=cardHeight*cardWidth;
+
+                button.onclick=function updateTotal(){
+                    total_sum+=cardPrice;
+                    total.innerHTML=total_sum;
+                    container.removeChild(card);
+                };
+
+                card.style.height=height.value+"px";
+                card.style.width=width.value+"px";
+                card.style.backgroundColor=color.value;
+
+                card.innerHTML="Height: "+height.value+"<br>"+"Width: "+width.value+"<br>"+"Color: "+color.value+"<br>"+"Price: "+parseInt(height.value*width.value)+"<br>";
+                card.appendChild(button);
+
+                container.appendChild(card);
+
+                card.className="card";
+
+                height.value="";
+                width.value="";
+                color.value="";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="naslov">
+    <h1>Cards</h1>
+</div>
+<div><label>Height</label><input type="text" id="height"></div>
+<div><label>Width</label><input type="text" id="width"></div>
+<div><label>Color</label><select id="color"><option>Red</option><option>Green</option><option>Blue</option></select></div>
+<button onclick="createCard()">Create</button>
+<div>
+    Total:<span id="total">0</span>
+</div>
+<div><h1>Cards:</h1></div>
+<div id="container">
+</div>
+</body>
+</html>
