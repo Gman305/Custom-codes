@@ -24,8 +24,12 @@
     .card{
         margin-right: 30px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .sell{
+        width: 40px;
     }
 </style>
 <head>
@@ -59,6 +63,8 @@
                     total.innerHTML=total_sum;
                     container.removeChild(card);
                 };
+
+                button.className="sell";
 
                 card.style.height=height.value+"px";
                 card.style.width=width.value+"px";
