@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    label{
+        display: inline-block;
+        width: 200px;
+    }
+    .input{
+        margin-bottom: 20px;
+    }
+    #naslov{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    table{
+        margin-top: 20px;
+    }
+    #glavno{
+        background-color: white;
+    }
+    tr,th{
+        width: 120px;
+    }
+</style>
+<head>
+    <script>
+        function addrow(){
+            let name=document.getElementById("ime");
+            let surname=document.getElementById("prezime");
+            let index=document.getElementById("indeks");
+            let email=document.getElementById("email");
+            let username=document.getElementById("username");
+
+            if(name.value==="" || surname.value==="" || index.value==="" || email.value==="" || username.value===""){
+                alert("Please fill out the whole form");
+                return -1;
+            }
+
+            else{
+                let table=document.getElementById("table");
+
+                let newrow=document.createElement("tr");
+
+                let cell1=document.createElement("td");
+                let cell2=document.createElement("td");
+                let cell3=document.createElement("td");
+                let cell4=document.createElement("td");
+                let cell5=document.createElement("td");
+
+                cell1.innerHTML=name.value;
+                cell2.innerHTML=surname.value;
+                cell3.innerHTML=index.value;
+                cell4.innerHTML=email.value;
+                cell5.innerHTML=username.value;
+
+                newrow.appendChild(cell1);
+                newrow.appendChild(cell2);
+                newrow.appendChild(cell3);
+                newrow.appendChild(cell4);
+                newrow.appendChild(cell5);
+
+                newrow.style.backgroundColor="white";
+                newrow.style.alignContent="center";
+
+                table.appendChild(newrow);
+
+                name.value="";
+                surname.value="";
+                index.value="";
+                email.value="";
+                username.value="";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="naslov">
+    <h1>Nekoj Bullshit</h1>
+</div>
+<div><label>Име</label><input type="text" class="input" id="ime"></div>
+<div><label>Презиме</label><input type="text" class="input" id="prezime"></div>
+<div><label>Индекс</label><input type="text" class="input" id="indeks"></div>
+<div><label>Емаил</label><input type="text" class="input" id="email"></div>
+<div><label>Корисничко име</label><input type="text" class="input" id="username"></div>
+<div><button onclick="addrow()">Add</button></div>
+<div>
+    <table id="table" bgcolor="black" border="1">
+        <tr id="glavno">
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Индекс</th>
+            <th>Емаил</th>
+            <th>Корисничко име</th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
