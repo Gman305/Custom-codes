@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<style>
+    #naslov{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    label{
+        display: inline-block;
+        width: 200px;
+    }
+    .input{
+        margin-bottom: 20px;
+        width: 200px;
+    }
+    table{
+        background-color: black;
+    }
+    tr{
+        background-color: white;
+    }
+    #tables{
+        display: flex;
+    }
+    #table1{
+        margin-right: 100px;
+    }
+</style>
+<head>
+    <title>Online Shop</title>
+    <script>
+        function addItem() {
+            let name = document.getElementById("name");
+            let item = document.getElementById("item");
+            let code = document.getElementById("code");
+            let desc = document.getElementById("desc");
+            let price = document.getElementById("price");
+            let type = document.getElementById("type");
+
+            let activeItems = document.getElementById("active items");
+
+            if (name.value === "" || item.value === "" || code.value === "" || desc.value === "" || price.value === "" || type.value === "") {
+                alert("Please fill out the whole form");
+                return -1;
+            }
+
+            let table;
+            if (type.value === "used") {
+                table = document.getElementById("used");
+            } else if (type.value === "unused") {
+                table = document.getElementById("unused");
+            }
+
+            let newRow = document.createElement("tr");
+
+            let Cell1 = document.createElement("td");
+            let Cell2 = document.createElement("td");
+            let Cell3 = document.createElement("td");
+            let Cell4 = document.createElement("td");
+            let Cell5 = document.createElement("td");
+            let Cell6 = document.createElement("td");
+            let button = document.createElement("button");
+
+            Cell1.innerHTML = name.value;
+            Cell2.innerHTML = item.value;
+            Cell3.innerHTML = price.value;
+            Cell4.innerHTML = code.value;
+            Cell5.innerHTML = "";
+
+            button.textContent = "Sell";
+            button.onclick = function () {
+                let row = button.parentNode.parentNode;
+                row.style.backgroundColor = "yellow";
+                button.parentNode.removeChild(button);
+                updateActiveItemsCount(-1);
+            };
+
+            Cell6.appendChild(button);
+
+            newRow.appendChild(Cell1);
+            newRow.appendChild(Cell2);
+            newRow.appendChild(Cell3);
+            newRow.appendChild(Cell4);
+            newRow.appendChild(Cell5);
+            newRow.appendChild(Cell6);
+
+            table.appendChild(newRow);
+
+            name.value = "";
+            item.value = "";
+            code.value = "";
+            desc.value = "";
+            price.value = "";
+            type.value = "";
+
+            updateActiveItemsCount(1);
+        }
+
+        function updateActiveItemsCount(change) {
+            let activeItemsElement = document.getElementById("active items");
+            let currentCount = parseInt(activeItemsElement.textContent, 10);
+            activeItemsElement.textContent = currentCount + change;
+        }
+    </script>
+</head>
+<body>
+<div id="naslov">
+    <h1>Online shop</h1>
+</div>
+<div><label>Name and Surname</label><input type="text" id="name" class="input"></div>
+<div><label>Item</label><input type="text" id="item" class="input"></div>
+<div><label>Item code</label><input type="text" id="code" class="input"></div>
+<div><label>Item description</label><input type="text" id="desc" class="input"></div>
+<div><label>Price</label><input type="text" id="price" class="input"></div>
+<div><label>Used</label>
+    <select id="type" class="input">
+        <option>used</option>
+        <option>unused</option>
+    </select>
+</div>
+<div><button onclick="addItem()">Add</button></div>
+<div>Active items: <span id="active items">0</span></div>
+<div id="tables">
+    <div id="table1">
+        <h2>Used</h2>
+        <table id="used">
+            <tr>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Code</th>
+                <th>Number</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>Unused</h2>
+        <table id="unused">
+            <tr>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Code</th>
+                <th>Number</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
